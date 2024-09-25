@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-   greetWord("World")
+   greetWord("World");
     string word;
     while (true) {
         cout << "Input: ";
