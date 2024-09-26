@@ -1,3 +1,6 @@
+//Ballyyev Eziz ballyev.006@gmail.com
+//hello world project
+
 #include <iostream>
 #include "greetWord.h"
 
