@@ -1,56 +1,71 @@
 #include<iostream>
-#include<stack>
-#include<sstream>
 #include<string>
-#include<stdexcept>
-float evaluateRPN(const std::string& expression) {
-    std::stack<float> stack;
-    std::stringstream tokens(expression);
-    std::string token;
+#include<cstdlib>
 
-    while (tokens >> token) {
-        try {
-            float number = std::stof(token);
-            stack.push(number);
-        }catch (const std::invalid_argument&) {
-            if (stack.size() < 2) {
-                throw std::invalid_argument("Недостаточно значений для операций");
-            }
-            
-            float b = stack.top(); stack.pop();
-            float a = stack.top(); stack.pop();
+int main()
+{
+  const int maxSize = 100;
+  double* stack = new double[maxSize];
+  int top =-1;
 
-            if (token == "+") stack.push(a + b);
-            else if (token == "-") stack.push(a - b);
-            else if (token == "*") stack.push(a * b);
-            else if (token == "/") {
-                if (b == 0) throw std::invalid_argument("Деление на ноль");
-                stack.push(a/b);
-            } else {
-                if (token == "+") {
-                throw std::invalid_argument("Неверный оператор");
-            }
-        }
-        }
+  std::string input;
+  std::cout<< "Enter input in Reverse Polish Notation:";
+  std::getline(std::cin,input);
+
+  std::string token;
+
+  for (size_t i=0; i < input.size(); ++i)
+  { 
+    char c = input[i];
+
+    if(c ==' ')continue;
+
+    if(c == '+' || c == '-' || c == '*' || c == '/')
+    {
+      if(top < 1)
+      {
+        std::cout<< "Not enough operand for operation" << c << std::endl;
+        delete[] stack;
+        return 0;
+      }
+       
+      double b = stack[top--];
+      double a = stack[top--];
+
+      double result = 0;
+      switch (c)
+      {
+        case '+':result= a + b;break;
+        case '-':result= a - b;break;
+        case '*':result= a * b;break;
+        case '/':result= a / b;break;
+      }
+      
+      stack[++top]=result;
     }
-
-    if (stack.size()!=1) {
-        throw std::invalid_argument("Неверное выражение");
+    else if(isdigit(c) || c =='-')
+    {
+      token.clear();
+      while(i<input.size()&&(isdigit(input[i]||input[i])=='.'||input[i]=='-'))
+    {
+      token += input[i];
+      ++i;
     }
-
-    return stack.top();
+    --i;
+    stack[++top] = atof(token.c_str());
+  }
 }
 
-int main() {
-    std::string input;
-    std::cout << "Введение выражения в обратной польской записи: ";
-    std::getline(std::cin, input);
+if(top != 0)
+{
+  std::cout<< "Incorrect input" << std::endl;
+  delete[] stack;
+  return 0;
+}
 
-    try {
-        float result = evaluateRPN(input);
-        std::cout << "Результат: "<< result << std::endl;
-    }catch (const std::exception& e) {
-        std::cerr << "Ошибка: " << e.what() << std::endl;
-    }
-    return 0;
+  std::cout<<"Result: " << stack[top] << std::endl;
+
+  delete[] stack;
+  return 0;
+
 }

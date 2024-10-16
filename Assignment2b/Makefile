@@ -1,13 +1,5 @@
-CXX = g++
-CXXFLAGS = -Wall -std=c++17 
-BINARY = postfix
+final: main.o
+	g++ main.o -o main
 
-.PHONY: all clean
-
-all: $(BINARY)
-
-$(BINARY): main.cpp
-	$(CXX) $(CXXFLAGS) -o $(BINARY) main.cpp
-
-clean:
-	rm -f $(BINARY)
+main.o: main.cpp
+	g++ -c main.cpp
