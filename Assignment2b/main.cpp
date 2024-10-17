@@ -1,12 +1,14 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
+#include<cctype>
+#include<stdexcept>
 
 int main()
 {
   const int maxSize = 100;
   double* stack = new double[maxSize];
-  int top =-1;
+  int top = -1;
 
   std::string input;
   std::cout<< "Enter input in Reverse Polish Notation:";
@@ -24,7 +26,7 @@ int main()
     {
       if(top < 1)
       {
-        std::cout<< "Not enough operand for operation" << c << std::endl;
+        std::cout<< "not enough operands for operation" << c << std::endl;
         delete[] stack;
         return 0;
       }
@@ -38,22 +40,37 @@ int main()
         case '+':result= a + b;break;
         case '-':result= a - b;break;
         case '*':result= a * b;break;
-        case '/':result= a / b;break;
+        case '/':if (b == 0)
+        {
+          std::cout<<"division by zero error"<<std::endl;
+          delete[] stack;
+          result; 0;
+        }
+        result = a/b;
+        break;
+     
       }
       
       stack[++top]=result;
     }
-    else if(isdigit(c) || c =='-')
+    else if(isdigit(c) || (c =='-'&& i+1 < input.size()&&isdigit(input[i + 1])))
     {
       token.clear();
-      while(i<input.size()&&(isdigit(input[i]||input[i])=='.'||input[i]=='-'))
+      while(i<input.size()&&(isdigit(input[i] || input[i]=='.')))
     {
       token += input[i];
       ++i;
     }
     --i;
-    stack[++top] = atof(token.c_str());
-  }
+    
+    {
+    std::cout<<"Invalid number: "<< c <<std::endl;
+    delete[]stack;
+    return 0;
+    }
+
+    stack[++top] = std::stod(token);
+  } 
 }
 
 if(top != 0)
