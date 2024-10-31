@@ -1,5 +1,5 @@
 #ifndef MAXIMAL_H
-#endif MAXIMAL_H
+#define MAXIMAL_H
 
 #include "transformer.h"
 

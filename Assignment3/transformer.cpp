@@ -1,4 +1,4 @@
-#include "Transformer.h"
+#include "transformer.h"
 #include<iostream>
 
 Transformer::Transformer()
@@ -22,6 +22,7 @@ bool Transformer::turn(Direction dir) {
 
 bool Transformer::jump() {
     std::cout << "Transformer jumps.\n";
+    return true;
 }
 
 

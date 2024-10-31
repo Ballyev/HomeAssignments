@@ -9,9 +9,9 @@ TEST(TramsformerTest, MoveTest) {
     EXPECT_TRUE(transformer.move());
 }
 
-TEST(TransformerTEST, FireTEST) {
-    Transformer transformer;
-    EXPECT_TRUE(autobot.assist());
+TEST(AutobotTEST, FireTEST) {
+    Autobot autobot;
+    EXPECT_TRUE(autobot.fire());
 }
 
 TEST(DecepticonTest, SabotageTest) {

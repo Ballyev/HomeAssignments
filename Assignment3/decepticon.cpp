@@ -1,4 +1,4 @@
-#include "Decepticon.h"
+#include "decepticon.h"
 #include<iostream>
 
 Decepticon::Decepticon() {

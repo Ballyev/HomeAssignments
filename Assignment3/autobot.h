@@ -1,7 +1,9 @@
 #ifndef AUTOBOT_H
 #define AUTOBOT_H
 
-class Autobot : public Transformer {
+#include "transformer.h"
+class Autobot : public Transformer
+{
 public:
     Autobot();
     ~Autobot();
