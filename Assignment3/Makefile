@@ -1,11 +1,32 @@
-PROJECT = transformer_tests
+TEST_TARGET = test_transformers
+
 CXX = g++
-SRC = transformer.cpp autobot.cpp decepticon.cpp maximal.cpp test_transformers.cpp
-OBJS = $(SRC:.cpp=.o)
-GTEST_LIBS = -lgtest -lgtest_main - pthread
-$(PROJECT): $(OBJS)
-	$(CXX) $(PROJECT) -o $@ $(OBJS) $(GTEST_LIBS)
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+CXXFLAGS = -Wall -std=c++17 -I/usr/include/gtest
+
+LIBS = -lgtest -lgtest_main -pthread
+
+SRCS = test_transformers.cpp transformer.cpp autobot.cpp decepticon.cpp maximal.cpp
+OBJS = test_transformers.o transformer.o autobot.o decepticon.o maximal.o
+
+all: $(TEST_TARGET)
+
+$(TEST_TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LIBS)
+
+test_transformers.o: test_transformers.cpp transformer.h autobot.h decepticon.h maximal.h
+	$(CXX) $(CXXFLAGS) -c test_transformers.cpp
+
+transformer.o: transformer.cpp transformer.h
+	$(CXX) $(CXXFLAGS) -c transformer.cpp
+
+autobot.o: autobot.cpp autobot.h transformer.h
+	$(CXX) $(CXXFLAGS) -c autobot.cpp
+
+decepticon.o: decepticon.cpp decepticon.h transformer.h
+	$(CXX) $(CXXFLAGS) -c decepticon.cpp
+
+maximal.o: maximal.cpp maximal.h transformer.h
+	$(CXX) $(CXXFLAGS) -c maximal.cpp
+
 clean:
-	rm -f $(OBJS) $(PROJECT)	
+	rm *.o $(TEST_TARGET)

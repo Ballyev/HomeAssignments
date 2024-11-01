@@ -16,7 +16,7 @@ bool Transformer::move() {
 }
 
 bool Transformer::turn(Direction dir) {
-    std::cout << "Transformer turns/\n";
+    std::cout << "Transformer turns.\n";
     return true;
 }
 
