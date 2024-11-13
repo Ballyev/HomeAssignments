@@ -1,3 +1,5 @@
+//Ballyyev Eziz ballyev.006@gmail.com
+//Transformer Class Inheritance
 #include<iostream>
 #include"Autobot.h"
 #include"Decepticon.h"

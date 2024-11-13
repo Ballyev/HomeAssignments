@@ -1,3 +1,5 @@
+//Ballyyev Eziz ballyev.006@gmail.com
+//Transformer Class Inheritance
 #ifndef MAXIMAL_H
 #define MAXIMAL_H
 

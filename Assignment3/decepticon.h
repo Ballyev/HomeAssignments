@@ -1,3 +1,5 @@
+//Ballyyev Eziz ballyev.006@gmail.com
+//Transformer Class Inheritance
 #ifndef DECEPTICON_H
 #define DECEPTICON_H
 

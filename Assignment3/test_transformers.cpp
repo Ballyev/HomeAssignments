@@ -1,3 +1,5 @@
+//Ballyyev Eziz ballyev.006@gmail.com
+//Transformer Class Inheritance
 #include<gtest/gtest.h>
 #include"transformer.h"
 #include"autobot.h"
