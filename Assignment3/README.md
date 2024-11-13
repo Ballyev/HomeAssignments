@@ -1,11 +1,11 @@
-##Assignment3
-##Author
+# Assignment3
+# Author
 Баллыев Эзиз 24.Б83-мм
-##Contacts
+# Contacts
 st135568@student.spbu.ru
-##Description
+# Description
 Создание иерархии трансформеров
-##Build
+# Build
 make
-##Run
+# Run
 ./transformer
