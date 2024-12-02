@@ -1,3 +1,4 @@
+//Ballyyev Eziz st135568@student.spbu.ru Class Transformers
 #include "Autobot.h"
 
 Autobot::Autobot(AutobotConfig config)

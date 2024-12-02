@@ -1,3 +1,4 @@
+//Ballyyev Eziz st135568@student.spbu.ru Class Transformers
 #ifndef MINICON_H
 #define MINICON_H
 

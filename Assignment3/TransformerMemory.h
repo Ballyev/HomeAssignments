@@ -1,3 +1,4 @@
+//Ballyyev Eziz st135568@student.spbu.ru Class Transformers
 #ifndef TRANSFORMER_MEMORY_H
 #define TRANSFORMER_MEMORY_H
 

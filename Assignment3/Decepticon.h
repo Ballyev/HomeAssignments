@@ -1,3 +1,4 @@
+//Ballyyev Eziz st135568@student.spbu.ru Class Transformers
 #ifndef DECEPTICON_H
 #define DECEPTICON_H
 

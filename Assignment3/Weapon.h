@@ -1,3 +1,4 @@
+//Ballyyev Eziz st135568@student.spbu.ru Class Transformers
 #ifndef WEAPON_H
 #define WEAPON_H
 
