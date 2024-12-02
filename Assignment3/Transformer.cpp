@@ -45,7 +45,7 @@ int Transformer::getHealth() const {
     return _health;
 }
 
-Gun* Transformer::getCurrentWeapon() const {
+Weapon* Transformer::getCurrentWeapon() const {
     return _weapon;
 }
 

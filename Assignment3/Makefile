@@ -1,13 +1,13 @@
-IDIR=.
-CXX=g++
-CXXFLAGS=-I$(IDIR) -Wall -Wpedantic -Werror
+IDIR = 
+CXX = g++
+CXXFLAGS= -I $(IDIR) -Wall -Wpedantic -Werror
 LDFLAGS=-lgtest -lgtest_main -lpthread
-OBJECT_FILES=Transformer.o TransformerMemory.o Gun.o Autobot.o Decepticon.o Minicon.o
-PROJECT=main
-DEPS=Weapon.h Transformer.h TransformerMemory.h Autobot.h Decepticon.h Minicon.h
-TEST_DIR=tests
-TEST_FILES=$(wildcard $(TEST_DIR)/test-*.cpp)
-TEST_OBJECTS=$(TEST_FILES:.cpp=.o) $(OBJECT_FILES)
+OBJECT_FILES = Transformer.o TransformerMemory.o Weapon.o Autobot.o Decepticon.o Minicon.o
+PROJECT = main
+DEPS =  Transformer.h TransformerMemory.h Weapon.h Autobot.h Decepticon.h Minicon.h
+TEST_DIR = tests
+TEST_FILES = $(wildcard $(TEST_DIR)/test-*.cpp)
+TEST_OBJECTS = $(TEST_FILES:.cpp=.o) $(OBJECT_FILES)
 ll: $(PROJECT);
 default: all;
 
