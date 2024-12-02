@@ -1,4 +1,4 @@
-IDIR = 
+IDIR =.
 CXX = g++
 CXXFLAGS= -I $(IDIR) -Wall -Wpedantic -Werror
 LDFLAGS=-lgtest -lgtest_main -lpthread

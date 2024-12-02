@@ -1,49 +1,32 @@
-#include "Decepticon.h"
+#ifndef DECEPTICON_H
+#define DECEPTICON_H
 
-Decepticon::Decepticon()
-    : Transformer(DecepticonConfig({})),
-      _flyingRange(0),
-      _canLandOnWater(false) {
-}
+#include <iostream>
 
-Decepticon::Decepticon(DecepticonConfig config)
-    : Transformer(config),
-      _flyingRange(config.flyingRange),
-      _canLandOnWater(config.canLandOnWater) {
-}
+#include "Transformer.h"
 
-void Decepticon::fly() {
-    std::cout << "Flying into the sky!\n";
-    accessMemory()->logAction("Flying");
-}
+struct DecepticonConfig : public TransformerConfig {
+        const int flyingRange;
+        const bool canLandOnWater;
+};
 
-int Decepticon::getFlyingRange() {
-    return _flyingRange;
-}
+class Decepticon : public Transformer {
+    public:
+        Decepticon();
+        Decepticon(DecepticonConfig config);
+        void fly();
+        int getFlyingRange();
+        void setFlyingRange(int flyingRange);
+        bool canLandOnWater();
+        void setCanLandOnWater(bool canLandOnWater);
+        friend std::ostream& operator<<(std::ostream& os,
+                                        const Decepticon& decepticon);
+        bool operator>(const Decepticon& other) const;
+        bool operator<(const Decepticon& other) const;
 
-void Decepticon::setFlyingRange(int flyingRange) {
-    _flyingRange = flyingRange;
-}
+    private:
+        int _flyingRange;
+        bool _canLandOnWater;
+};
 
-bool Decepticon::canLandOnWater() {
-    return _canLandOnWater;
-}
-
-void Decepticon::setCanLandOnWater(bool canLandOnWater) {
-    _canLandOnWater = canLandOnWater;
-}
-
-std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon) {
-    os << "Decepticon, " << decepticon.getAgeInYears() << " y.o, with"
-       << decepticon.getCurrentWeapon()->getName() << " that can fly up to "
-       << decepticon._flyingRange << "\n";
-    return os;
-}
-
-bool Decepticon::operator>(const Decepticon& other) const {
-    return other.getHealth() > this->getHealth();
-}
-
-bool Decepticon::operator<(const Decepticon& other) const {
-    return other.getHealth() < this->getHealth();
-}
+#endif
