@@ -1,3 +1,4 @@
+//Баллыев Эзиз 83-группа Implementation of Transformer classes
 #include "autobot.h"
 #include "decepticon.h"
 #include "maximal.h"

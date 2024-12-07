@@ -1,3 +1,4 @@
+//Баллыев Эзиз 83-группа Implementation of Transformer classes
 #ifndef AUTOBOT_H
 #define AUTOBOT_H
 

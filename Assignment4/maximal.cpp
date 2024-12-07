@@ -1,3 +1,4 @@
+//Баллыев Эзиз 83-группа Implementation of Transformer classes
 #include "maximal.h"
 #include <iostream>
 

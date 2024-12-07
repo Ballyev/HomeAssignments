@@ -1,3 +1,4 @@
+//Баллыев Эзиз 83-группа Implementation of Transformer classes
 #ifndef WEAPON_H
 #define WEAPON_H
 
