@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 
 TEST(Transformer, can_be_initialized_with_config) {
-    Weapon weapon("Bubble weapon");
+    Gun gun("Bubble gun");
     TransformerConfig config = {"Car", 10};
     Transformer transformer(config);
     ASSERT_EQ(transformer.getAgeInYears(), 10);
@@ -12,14 +12,14 @@ TEST(Transformer, can_be_initialized_with_config) {
 }
 
 TEST(Transformer, can_switch_guns) {
-    Weapon weapon1("Weapon 1");
-    Weapon weapon2("Weapon 2");
+    Gun gun1("Gun 1");
+    Gun gun2("Gun 2");
     TransformerConfig config = {"Car", 10};
     Transformer transformer(config);
-    transformer.setWeapon(&weapon1);
-    ASSERT_EQ(transformer.getCurrentWeapon()->getName(), "Weapon 1");
-    transformer.setWeapon(&weapon2);
-    ASSERT_EQ(transformer.getCurrentWeapon()->getName(), "Weapon 2");
+    transformer.setGun(&gun1);
+    ASSERT_EQ(transformer.getCurrentGun()->getName(), "Gun 1");
+    transformer.setGun(&gun2);
+    ASSERT_EQ(transformer.getCurrentGun()->getName(), "Gun 2");
 }
 
 TEST(Transformer, can_increase_age) {
@@ -30,10 +30,10 @@ TEST(Transformer, can_increase_age) {
 }
 
 TEST(Transformer, can_fire) {
-    Weapon weapon("Weapon 1");
+    Gun gun1("Gun 1");
     TransformerConfig config = {"Car", 10};
     Transformer transformer(config);
-    transformer.setWeapon(&weapon);
+    transformer.setGun(&gun1);
     transformer.fire();
     ASSERT_EQ(transformer.getHealth(), 99);
 }

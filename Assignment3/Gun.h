@@ -1,12 +1,12 @@
 //Ballyyev Eziz st135568@student.spbu.ru Class Transformers
-#ifndef WEAPON_H
-#define WEAPON_H
+#ifndef GUN_H
+#define GUN_H
 
 #include <string>
 
-class Weapon {
+class Gun {
     public:
-        Weapon(std::string name);
+        Gun(std::string name);
         void strike();
         std::string getName();
 

@@ -20,11 +20,11 @@ void Transformer::transform() {
 }
 
 void Transformer::fire() {
-    if (!_weapon) {
-        std::cerr << "No weapon to shoot\n";
+    if (!_gun) {
+        std::cerr << "No gun to shoot\n";
         return;
     }
-    _weapon->strike();
+    _gun->strike();
     _health--;
     _memory->logAction("Stroke");
 }
@@ -46,16 +46,16 @@ int Transformer::getHealth() const {
     return _health;
 }
 
-Weapon* Transformer::getCurrentWeapon() const {
-    return _weapon;
+Gun* Transformer::getCurrentGun() const {
+    return _gun;
 }
 
 void Transformer::setHealth(int newHealthValue) {
     _health = newHealthValue;
 }
 
-void Transformer::setWeapon(Weapon* weapon) {
-    _weapon = weapon;
+void Transformer::setGun(Gun* gun) {
+    _gun = gun;
 }
 
 Transformer::~Transformer() {

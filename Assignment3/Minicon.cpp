@@ -28,7 +28,7 @@ Transformer* Minicon::getCurrentBearer() const {
 
 std::ostream& operator<<(std::ostream& os, const Minicon& minicon) {
     os << "Minicon, " << minicon.getAgeInYears() << " y.o, with"
-       << minicon.getCurrentWeapon()->getName()
+       << minicon.getCurrentGun()->getName()
        << ", height: " << minicon.getHeightInMeters() << "\n";
     return os;
 }

@@ -36,7 +36,7 @@ void Decepticon::setCanLandOnWater(bool canLandOnWater) {
 
 std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon) {
     os << "Decepticon, " << decepticon.getAgeInYears() << " y.o, with"
-       << decepticon.getCurrentWeapon()->getName() << " that can fly up to "
+       << decepticon.getCurrentGun()->getName() << " that can fly up to "
        << decepticon._flyingRange << "\n";
     return os;
 }

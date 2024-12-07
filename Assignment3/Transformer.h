@@ -5,8 +5,8 @@
 #include <iostream>
 #include <string>
 
+#include "Gun.h"
 #include "TransformerMemory.h"
-#include "Weapon.h"
 
 struct TransformerConfig {
         const std::string transformationResult;
@@ -24,10 +24,10 @@ class Transformer {
         std::string getTransformationResult() const;
         int getAgeInYears() const;
         int getHealth() const;
-        Weapon* getCurrentWeapon() const;
+        Gun* getCurrentGun() const;
 
         void setHealth(int newHealthValue);
-        void setWeapon(Weapon* weapon);
+        void setGun(Gun* gun);
 
         ~Transformer();
 
@@ -36,7 +36,7 @@ class Transformer {
         std::string _transformationResult;
         int _ageInYears;
         TransformerMemory* _memory;
-        Weapon* _weapon = nullptr;
+        Gun* _gun = nullptr;
         static const int TRANSFORMATION_HEALTH_LIMIT = 10;
 
     protected:

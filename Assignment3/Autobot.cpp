@@ -33,7 +33,7 @@ void Autobot::setHaveMatrixOfLeadership(bool haveMatrixOfLeadership) {
 }
 std::ostream& operator<<(std::ostream& os, const Autobot& autobot) {
     os << "Autobot, " << autobot.getAgeInYears() << " y.o, with"
-       << autobot.getCurrentWeapon()->getName() << "\n";
+       << autobot.getCurrentGun()->getName() << "\n";
     return os;
 }
 

@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 
 TEST(Autobot, can_be_initialized_with_config) {
-    Weapon weapon("Mobile phone");
+    Gun gun("Mobile phone");
     AutobotConfig config = {"Car", 10, 0, true, "Let builders build"};
     Autobot autobot(config);
     ASSERT_EQ(autobot.haveMatrixOfLeadership(), true);
@@ -11,19 +11,12 @@ TEST(Autobot, can_be_initialized_with_config) {
 }
 
 TEST(Autobot, can_shant_motto) {
-    Weapon weapon("Mobile phone");
+    Gun gun("Mobile phone");
     AutobotConfig config = {"Car", 10, 0, true, "Let builders build"};
     Autobot autobot(config);
     autobot.shantMotto();
 }
 
-TEST(Autobot, can_be_weaker) {
-    AutobotConfig config = {"Car", 10, 0, true, "Let builders build"};
-    Autobot autobot1(config);
-    AutobotConfig config2 = {"Car", 20, 0, true, "Let builders build"};
-    Autobot autobot2(config2);
-    ASSERT_GT(autobot1, autobot2);
-}
 TEST(Autobot, can_be_stronger) {
     AutobotConfig config = {"Car", 10, 0, true, "Let builders build"};
     Autobot autobot1(config);

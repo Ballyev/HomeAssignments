@@ -9,7 +9,7 @@ TransformerMemory::TransformerMemory(int capacity)
 }
 
 void TransformerMemory::logAction(const std::string& action) {
-    if (_index < _capacity) {  
+    if (_index < _capacity) {  // Use _capacity instead
         _log[_index++] = action;
     } else {
         std::cerr << "Log capacity exceeded\n";
