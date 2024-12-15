@@ -1,31 +1,27 @@
-IDIR =.
 CXX = g++
-CXXFLAGS = -I$(IDIR) -Wall -Wpedantic -Werror
-LDFLAGS = -lgtest -lgtest_main -lpthread
-OBJECT_FILES = Transformer.o TransformerMemory.o Gun.o Autobot.o Decepticon.o Minicon.o
-PROJECT= main
-DEPS = Transformer.h TransformerMemory.h Gun.h Autobot.h Decepticon.h Minicon.h
-TEST_DIR = tests
-TEST_FILES = $(wildcard $(TEST_DIR)/test-*.cpp)
-TEST_OBJECTS = $(TEST_FILES:.cpp=.o) $(OBJECT_FILES)
-all: $(PROJECT);
-default: all;
+CXXFLAGS = -std=c++17 -Wall -I/usr/include -pthread
+GTEST_DIR = ~/googletest/googletest/build/lib
 
-%.o: %.cpp $(DEPS)
-		$(CXX) -c -o $@ $< $(CXXFLAGS)
+SRC = Transformers.cpp Autobots.cpp Desepticons.cpp MiniRobots.cpp
+OBJ = $(SRC:.cpp=.o)
+
+TEST_SRC = allclassestesting.cpp
+TEST_OBJ = $(TEST_SRC:.cpp=.o)
+
+TARGET = allclasses_test
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ) $(TEST_OBJ)
+	$(CXX) $(OBJ) $(TEST_OBJ) -o $(TARGET) -L$(GTEST_DIR) -lgtest -lgtest_main -lpthread
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 clean:
-		rm -f $(PROJECT) $(TEST_DIR)/*.o *.o
-format:
-		find . \( -name '*.cpp' -o -name '*.h' \) -exec clang-format -i {} \;
-$(PROJECT):
-		@echo 'This project contains only test code. To run test suits, use "make test"';
+	rm -f $(OBJ) $(TEST_OBJ) $(TARGET)
 
 
-test: $(TEST_OBJECTS)
-		$(CXX) -o run_tests $^ $(LDFLAGS)
-		./run_tests
-		rm ./run_tests
-
-$(TEST_DIR)/test-%.o: $(TEST_DIR)/test-%.cpp $(DEPS)
-		$(CXX) -c -o $@ $< $(CXXFLAGS)
-.PHONY: clean format $(PROJECT)
+test: $(OBJ) $(TEST_OBJ)
+	$(CXX) $(OBJ) $(TEST_OBJ) -o $(TARGET) -L$(GTEST_DIR) -lgtest -lgtest_main -lpthread
+		./$(TARGET)
