@@ -6,6 +6,6 @@ st135568@student.spbu.ru или ballyev.006@gmail.com
 ## Description
 Created a hierarchy of Transformers
 ## Build
-make test
+make
 ## Run
-./run_tests
+./allclasses_test
