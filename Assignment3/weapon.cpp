@@ -1,7 +1,7 @@
 #include "weapon.h"
 #include <iostream>
 
-Weapon::Weapon(const std::string &name): _name(name);
+Weapon::Weapon(const std::string &name): _name(name){}
 
 
 void Weapon::SetWeapon(const std::string &name){

@@ -3,11 +3,40 @@
 #include "Autobots.h"
 #include "MiniRobots.h"
 #include "Desepticons.h"
+#include "weapon.h"
+#include "engine.h"
 
-// Тесты для класса Transformers
+
+TEST(WeaponTest, SetGetWeapon) {
+    Weapon weapon("Laser");
+    EXPECT_EQ(weapon.getWeapon(), "Laser");
+
+    weapon.SetWeapon("Plasma");
+    EXPECT_EQ(weapon.getWeapon(), "Plasma");
+}
+
+
+TEST(EngineTest, SetGetType) {
+    Engine engine("V8", 300);
+    EXPECT_EQ(engine.getType(), "V8");
+
+    engine.setType("Electric");
+    EXPECT_EQ(engine.getType(), "Electric");
+}
+
+TEST(EngineTest, SetGetHorsepower) {
+    Engine engine("V8", 300);
+    EXPECT_EQ(engine.getHorsepower(), 300);
+
+    engine.setHorsepower(400);
+    EXPECT_EQ(engine.getHorsepower(), 400);
+}
+
+
 TEST(TransformersTest, SetGetWeapon) {
-    Engine engine; // Предполагается, что Engine имеет конструктор по умолчанию
-    Transformers transformer(100, 50, "Laser", 75, engine);
+    Engine engine; 
+    Weapon weapon("Laser");
+    Transformers transformer(100, 50, weapon.getWeapon(), 75, engine);
     
     transformer.setWeapon("Plasma");
     EXPECT_EQ(transformer.getWeapon(), "Plasma");
@@ -46,7 +75,7 @@ TEST(TransformersTest, SetGetAlly) {
     EXPECT_EQ(transformer.getAlly(), &ally);
 }
 
-// Тесты для класса Autobots
+
 TEST(AutobotsTest, SetGetWeaponType) {
     Engine engine;
     Autobots autobot(100, 50, "Laser", 75, engine);
@@ -71,7 +100,7 @@ TEST(AutobotsTest, SetGetSizeOfInventory) {
     EXPECT_EQ(autobot.getSizeOfInventory(), 20);
 }
 
-// Тесты для класса MiniRobots
+
 TEST(MiniRobotsTest, SetGetHeight) {
     Engine engine;
     MiniRobots miniRobot(100, 50, "Laser", 75, engine);
@@ -96,27 +125,26 @@ TEST(MiniRobotsTest, SetGetSize) {
     EXPECT_EQ(miniRobot.getSize(), "Small");
 }
 
-
-TEST(DecepticonsTest, SetGetDangerLevel) {
+TEST(DesepticonsTest, SetGetDangerLevel) {
     Engine engine;
-    Desepticons decepticon(100, 50, "Laser", 75, engine);
+    Desepticons desepticon(100, 50,"Laser",75 ,engine);
 
-    decepticon.setDangerLevel(80);
-    EXPECT_EQ(decepticon.getDangerLevel(), 80);
+   desepticon.setDangerLevel (80 );
+   EXPECT_EQ(desepticon.getDangerLevel (),80 );
 }
 
-TEST(DecepticonsTest, SetGetNumberOfModel) {
-    Engine engine;
-    Desepticons decepticon(100, 50,"Laser",75 ,engine);
-
-    decepticon.setNumberOfModel(12);
-    EXPECT_EQ(decepticon.getNumberOfModel(),12 );
-}
-
-TEST(DecepticonsTest, SetGetPercentOfRecharge) {
+TEST(DesepticonsTest, SetGetNumberOfModel) {
    Engine engine;
-   Desepticons decepticon (100 ,50 ,"Laser" ,75 ,engine);
+   Desepticons desepticon (100 ,50 ,"Laser" ,75 ,engine);
 
-   decepticon.setPercentOfRecharge (40 );
-   EXPECT_EQ(decepticon.getPercentOfRecharge (),40 );
+   desepticon.setNumberOfModel (12 );
+   EXPECT_EQ(desepticon.getNumberOfModel (),12 );
+}
+
+TEST(DesepticonsTest, SetGetPercentOfRecharge) {
+   Engine engine;
+   Desepticons desepticon (100 ,50 ,"Laser" ,75 ,engine);
+
+   desepticon.setPercentOfRecharge (40 );
+   EXPECT_EQ(desepticon.getPercentOfRecharge (),40 );
 }

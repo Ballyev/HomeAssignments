@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -I/usr/include -pthread
 GTEST_DIR = ~/googletest/googletest/build/lib
 
-SRC = Transformers.cpp Autobots.cpp Desepticons.cpp MiniRobots.cpp engine.cpp
+SRC = Transformers.cpp Autobots.cpp Desepticons.cpp MiniRobots.cpp engine.cpp weapon.cpp
 OBJ = $(SRC:.cpp=.o)
 
 TEST_SRC = allclassestesting.cpp
