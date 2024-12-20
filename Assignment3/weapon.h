@@ -14,9 +14,4 @@ class Weapon {
 
 }
 
-
-
-
-
-
 #endif
