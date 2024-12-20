@@ -1,0 +1,11 @@
+# Assigment5
+## Author
+**Баллыев Эзиз, группа 24.Б83-мм**
+## Contacts
+st135568@student.spbu.ru
+## Description
+Create template class with specialization classes and write tests to them
+## Build
+make
+## Run
+./tests
