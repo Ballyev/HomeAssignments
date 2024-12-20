@@ -1,12 +1,7 @@
 #include "MiniRobots.h"
 
-MiniRobots::MiniRobots(uint health, uint armor, uint weapon, uint power, const std::string& size, uint heiht, uint attackZone)
-    : Transformers(health, armor, weapon, power), _size(size), _height(), _attackZone() {}
-
-bool MiniRobots::transform()
-{
-    return false;
-}
+MiniRobots::MiniRobots(const unsigned int health,const  unsigned int armor, const std::string &weapon, const uint power, Engine engine)
+    : Transformers(health,armor,weapon,power,engine), _size("5"), _height(40), _attackZone(15) {}
 
 void MiniRobots::setSize(const std::string& size) {
     _size = size;

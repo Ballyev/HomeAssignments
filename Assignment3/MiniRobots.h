@@ -6,7 +6,8 @@
 
 class MiniRobots : public Transformers {
 public:
-    MiniRobots(uint health = 70, uint armor = 45, uint weapon = 10, uint power = 55, const std::string& size = "Small", uint height = 30, uint attackZone = 2);
+    MiniRobots(const unsigned int health, const unsigned int armor,
+             const std::string &weapon,const uint power, Engine engine);
     bool transform();
 
     void setHeight(uint height);

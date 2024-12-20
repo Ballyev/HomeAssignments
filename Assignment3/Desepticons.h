@@ -6,7 +6,8 @@
 
 class Desepticons : public Transformers {
 public:
-    Desepticons(uint health = 90, uint armor = 55, uint weapon = 15, uint power = 80, uint dangerLevel = 5, uint numberOfModel = 1, uint percentOfRecharge = 50);
+    Desepticons(const unsigned int health, const unsigned int armor,
+             const std::string &weapon,const uint power, Engine engine);
     bool transform();
 
     void setNumberOfModel(uint numberOfModel);

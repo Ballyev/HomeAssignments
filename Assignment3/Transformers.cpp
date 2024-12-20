@@ -1,17 +1,16 @@
 #include "Transformers.h"
-
-Engine::Engine(std::string type, uint horsepower) : _type(type), _horsepower(horsepower) {}
-
-std::string Engine::getType() const { return _type; }
-void Engine::setType(const std::string& type) { _type = type; }
-uint Engine::getHorsepower() const { return _horsepower; }
-void Engine::setHorsepower(uint horsepower) { _horsepower = horsepower; }
+#include <iostream>
 
 
-Transformers::Transformers(uint health, uint armor, uint weapon, uint power, Engine engine)
+Transformers::Transformers(const unsigned int health, const unsigned int armor,
+                        const std::string &weapon,const unsigned int power, Engine engine)
     : _health(health), _armor(armor), _weapon(weapon), _power(power), _engine(engine) {}
 
-Transformers::~Transformers() {}
+Transformers::Transformers(const unsigned int health, const unsigned int armor,
+                        const std::string &weapon,const unsigned int power)
+    : _health(health), _armor(armor), _weapon(weapon), _power(power){}
+
+    
 
 bool Transformers::motion() { 
     return true; 
@@ -23,31 +22,31 @@ bool Transformers::attack() {
     return true; 
     }
 
-void Transformers::setWeapon(uint weapon) { 
+void Transformers::setWeapon(const std::string &weapon) { 
     _weapon = weapon; 
     }
-uint Transformers::getWeapon() const {  
+std::string Transformers::getWeapon() const {  
     return _weapon; 
     }
 
-void Transformers::setHealth(uint health) { 
+void Transformers::setHealth(unsigned int health) { 
     _health = health; 
     }
-uint Transformers::getHealth() const { 
+unsigned int Transformers::getHealth() const { 
     return _health; 
     }
 
-void Transformers::setArmor(uint armor) { 
+void Transformers::setArmor(unsigned int armor) { 
     _armor = armor; 
     }
-uint Transformers::getArmor() const { 
+unsigned int Transformers::getArmor() const { 
     return _armor; 
     }
 
-void Transformers::setPower(uint power) { 
+void Transformers::setPower(unsigned int power) { 
     _power = power; 
     }
-uint Transformers::getPower() const { 
+unsigned int Transformers::getPower() const { 
     return _power; 
     }
 

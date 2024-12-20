@@ -4,39 +4,35 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include "engine.h"
 
-class Engine {
-    std::string _type;
-    uint _horsepower;
-
-public:
-    Engine(std::string type = "Standard", uint horsepower = 100);
-    std::string getType() const;
-    void setType(const std::string& type);
-    uint getHorsepower() const;
-    void setHorsepower(uint horsepower);
-};
 
 class Transformers {
 public:
-    Transformers(uint health = 100, uint armor = 50, uint weapon = 10, uint power = 75, Engine engine = Engine());
-    ~Transformers();
+    Transformers(const unsigned int health, const unsigned int armor,
+             const std::string &weapon,const uint power, Engine engine);
+
+    Transformers(const unsigned int health, const unsigned int armor,
+                        const std::string &weapon,const unsigned int power);
+
+
+    ~Transformers() = default;
 
     bool motion();
     bool jump();
     bool attack();
 
-    void setWeapon(uint weapon);
-    uint getWeapon() const;
+    void setWeapon(const std::string &weapon);
+    std::string getWeapon() const;
 
-    void setHealth(uint health);
-    uint getHealth() const;
+    void setHealth(unsigned int health);
+    unsigned int getHealth() const;
 
-    void setArmor(uint armor);
-    uint getArmor() const;
+    void setArmor(unsigned int armor);
+    unsigned int getArmor() const;
 
-    void setPower(uint power);
-    uint getPower() const;
+    void setPower(unsigned int power);
+    unsigned int getPower() const;
 
     void setEngine(const Engine& engine);
     Engine getEngine() const;
@@ -45,10 +41,10 @@ public:
     Transformers* getAlly() const;
 
 protected:
-    uint _health;
-    uint _armor;
-    uint _weapon;
-    uint _power;
+    unsigned int _health;
+    unsigned int _armor;
+    std::string _weapon;
+    unsigned int _power;
 
     Engine _engine;
     Transformers* _ally = nullptr;

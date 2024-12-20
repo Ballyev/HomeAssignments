@@ -6,7 +6,10 @@
 
 class Autobots : public Transformers {
 public:
-    Autobots(uint health = 100, uint armor = 50, uint weapon = 10, uint power = 75, const std::string& weaponType = "Blaster", uint skillLevel = 3, uint sizeOfInventory = 10);
+    Autobots(const unsigned int health, const unsigned int armor,
+             const std::string &weapon,const uint power, Engine engine);
+    ~Autobots() = default;
+    
     bool transform();
 
     void setWeaponType(const std::string& weaponType);
