@@ -1,3 +1,4 @@
+/*Assignment6 Баллыев Эзиз st135568@gmail.com create a template class with specializations and test them*/
 #include "Class2.h"
 
 bool Class2::bar(int, const std::vector<float>& vec) {

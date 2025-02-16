@@ -1,3 +1,4 @@
+/*Assignment6 Баллыев Эзиз st135568@gmail.com create a template class with specializations and test them*/
 #ifndef CLASS3_H
 #define CLASS3_H
 

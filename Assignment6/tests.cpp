@@ -1,3 +1,4 @@
+/*Assignment6 Баллыев Эзиз st135568@gmail.com create a template class with specializations and test them*/
 #include <gtest/gtest.h>
 #include "TemplateClass.h"
 #include "Class1.h"
